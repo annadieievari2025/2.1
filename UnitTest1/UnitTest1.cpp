@@ -1,8 +1,7 @@
 ﻿#include "pch.h"
 #include "CppUnitTest.h"
-#include "../2.1/IntRange.h"
-#include "../2.1/IntRange.cpp"
-
+#include "../2.2/Vector.h"   
+#include "../2.2/Vector.cpp"  
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -12,14 +11,16 @@ namespace UnitTest1
 	{
 	public:
 
-		TEST_METHOD(TestRangeCheck)
+		TEST_METHOD(TestVectorAddition)
 		{
-			IntRange r(2, 10);
+			Vector v1(3, 2); // [2,2,2]
+			Vector v2(3, 3); // [3,3,3]
 
-			bool result = r.rangeCheck(5);
+			Vector result = v1 + v2;
 
-			Assert::IsTrue(result);
+			Assert::AreEqual(5.0f, result[0]);
+			Assert::AreEqual(5.0f, result[1]);
+			Assert::AreEqual(5.0f, result[2]);
 		}
-
 	};
 }
